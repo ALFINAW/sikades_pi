@@ -2,9 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sikades_pi/daftar_surat_ajuan_ktp/ajuansuratktp.dart';
+import 'package:sikades_pi/view/berita.dart';
+
 import 'package:sikades_pi/view/informasi_desa.dart';
 import 'package:sikades_pi/view/menu_pengajuan_surat.dart';
 import 'package:sikades_pi/view/menu_utama.dart';
+
 import 'package:sikades_pi/view/profil_users.dart';
 
 class NavbarPage extends StatefulWidget {

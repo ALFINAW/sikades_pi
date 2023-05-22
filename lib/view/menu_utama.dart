@@ -1,7 +1,9 @@
 // ignore_for_file: camel_case_types, avoid_unnecessary_containers, prefer_const_constructors, sized_box_for_whitespace, sort_child_properties_last
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sikades_pi/daftar_surat_ajuan_ktp/ajuansuratktp.dart';
+import 'package:sikades_pi/view/berita_card.dart';
 import 'package:sikades_pi/view/informasi_desa.dart';
 import 'package:sikades_pi/view/menu_pengajuan_surat.dart';
 import 'package:sikades_pi/view/profil_users.dart';
@@ -14,16 +16,39 @@ class Menu_UtamaPage extends StatefulWidget {
 }
 
 class _Menu_UtamaPageState extends State<Menu_UtamaPage> {
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  Stream<QuerySnapshot<Object?>> streamData() {
+    CollectionReference data = firestore.collection("berita");
+    return data.orderBy("tanggal", descending: true).snapshots();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: const EdgeInsets.all(16.0),
-        margin: const EdgeInsets.only(top: 50, bottom: 10),
-        child: Center(
-            child: Column(
-          children: [judul(), judul2(), logodesa(), daftarmenu()],
-        )),
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          padding: const EdgeInsets.all(16.0),
+          margin: const EdgeInsets.only(top: 50, bottom: 10),
+          child: Column(
+            children: [
+              judul(),
+              judul2(),
+              logodesa(),
+              beritaText(),
+              beritaView()
+            ],
+          )),
+    );
+  }
+
+  Widget beritaView() {
+    return SingleChildScrollView(
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: 300,
+        child: content(),
       ),
     );
   }
@@ -37,6 +62,30 @@ class _Menu_UtamaPageState extends State<Menu_UtamaPage> {
         textAlign: TextAlign.center,
       ),
     );
+  }
+
+  Widget beritaText() {
+    return Container(
+      padding: EdgeInsets.only(bottom: 10),
+      child: const Text(
+        "Berita",
+        style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+
+  Widget content() {
+    return StreamBuilder<QuerySnapshot<Object?>>(
+        stream: streamData(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.active) {
+            var listAllDocument = snapshot.data!.docs;
+            return BeritaCard(listAllDocument: listAllDocument);
+          }
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        });
   }
 
   Widget judul2() {

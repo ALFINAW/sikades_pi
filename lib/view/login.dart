@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sikades_pi/admin/dashboard_admin.dart';
 import 'package:sikades_pi/admin/home_admin.dart';
 import 'package:sikades_pi/services/signUp.dart';
 import 'package:sikades_pi/view/menu_utama.dart';
@@ -360,7 +361,7 @@ class _LoginPageState extends State<LoginPage> {
         .then((DocumentSnapshot documentSnapshot) {
       if (documentSnapshot.exists) {
         if (documentSnapshot.get('role') == "admin") {
-          Get.off(AdminPage());
+          Get.off(DahsboardAdmin());
         } else {
           Get.off(NavbarPage());
         }

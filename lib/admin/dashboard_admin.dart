@@ -1,26 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sikades_pi/admin/home_admin.dart';
+import 'package:sikades_pi/admin/tambah_berita.dart';
 import 'package:sikades_pi/view/utils/my_color.dart';
 
-class DashboardAdmin extends StatefulWidget {
-  const DashboardAdmin({super.key});
+class DahsboardAdmin extends StatefulWidget {
+  const DahsboardAdmin({super.key});
 
   @override
-  State<DashboardAdmin> createState() => _DashboardAdminState();
+  State<DahsboardAdmin> createState() => _DahsboardAdminState();
 }
 
-class _DashboardAdminState extends State<DashboardAdmin> {
+class _DahsboardAdminState extends State<DahsboardAdmin> {
   int _selected_index = 0;
 
   void _updated_index(int index) {
     setState(() {
       _selected_index = index;
     });
-
-    final pages = [
-      const FeedAdmin(),
-      Text('1112222222'),
-      Text('1133333333'),
-    ];
   }
 
   Future<bool> onBackPressed() {
@@ -33,6 +30,10 @@ class _DashboardAdminState extends State<DashboardAdmin> {
     return Future.value(true); // Tindak lanjuti navigasi kembali
   }
 
+  final pages = [
+    AdminPage(),
+    const Text('11122222111'),
+  ];
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -40,16 +41,13 @@ class _DashboardAdminState extends State<DashboardAdmin> {
       child: Scaffold(
         extendBody: true,
         bottomNavigationBar: SafeArea(
-          minimum: EdgeInsets.only(bottom: 8),
           child: Container(
             padding: EdgeInsets.all(12),
-            margin: EdgeInsets.symmetric(horizontal: 10),
-            decoration: BoxDecoration(
-                color: "#2E4053".toColor().withOpacity(0.8),
-                borderRadius: BorderRadius.circular(25)),
+            decoration:
+                BoxDecoration(color: Color.fromARGB(255, 146, 240, 148)),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Spacer(),
                 SizedBox(
                   height: 40,
                   width: 40,
@@ -67,7 +65,6 @@ class _DashboardAdminState extends State<DashboardAdmin> {
                     ),
                   ),
                 ),
-                Spacer(),
                 SizedBox(
                   height: 40,
                   width: 40,
@@ -76,7 +73,7 @@ class _DashboardAdminState extends State<DashboardAdmin> {
                       _updated_index(1);
                     },
                     icon: Icon(
-                      Icons.feedback,
+                      Icons.person,
                       color: _selected_index == 1
                           ? Colors.white
                           : "#99A3A4".toColor(),
@@ -84,60 +81,24 @@ class _DashboardAdminState extends State<DashboardAdmin> {
                     ),
                   ),
                 ),
-                Spacer(),
-                Spacer(),
-                Spacer(),
-                Spacer(),
-                SizedBox(
-                  height: 40,
-                  width: 40,
-                  child: IconButton(
-                    onPressed: () {
-                      _updated_index(2);
-                    },
-                    icon: Icon(
-                      Icons.help_center,
-                      color: _selected_index == 2
-                          ? Colors.white
-                          : "#99A3A4".toColor(),
-                      size: 25,
-                    ),
-                  ),
-                ),
-                Spacer(),
-                SizedBox(
-                  height: 40,
-                  width: 40,
-                  child: IconButton(
-                    padding: EdgeInsets.only(left: 10),
-                    onPressed: () {
-                      _updated_index(3);
-                    },
-                    icon: Icon(
-                      Icons.person,
-                      color: _selected_index == 3
-                          ? Colors.white
-                          : "#99A3A4".toColor(),
-                      size: 30,
-                    ),
-                  ),
-                ),
-                Spacer()
               ],
             ),
           ),
         ),
+        body: IndexedStack(
+          index: _selected_index,
+          children: pages,
+        ),
         floatingActionButton: FloatingActionButton(
-            backgroundColor: "#99A3A4".toColor(),
+            backgroundColor: Colors.green,
             child: Icon(
               Icons.add,
               size: 35,
             ),
             onPressed: () {
-              Get.to(TambahAduan());
+              Get.to(TambahBerita());
             }),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        body: dashboardItems.elementAt(_selected_index),
       ),
     );
   }
