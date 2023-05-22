@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "50180370934",
+    "project_id": "projectinformatika-4a6cf",
+    "storage_bucket": "projectinformatika-4a6cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50180370934:android:e23071cea314c70b2e97d7",
+        "android_client_info": {
+          "package_name": "com.example.sikades_pi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "50180370934-9304jlmp3dglmbm9m21b5aaa9rhcqcp8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYBNl1sKLnmPtRdXiPuB3AoWytxDBIpTY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "50180370934-9304jlmp3dglmbm9m21b5aaa9rhcqcp8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
