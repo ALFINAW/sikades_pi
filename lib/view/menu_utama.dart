@@ -66,9 +66,10 @@ class _Menu_UtamaPageState extends State<Menu_UtamaPage> {
 
   Widget beritaText() {
     return Container(
-      padding: EdgeInsets.only(bottom: 10),
+      alignment: Alignment.centerLeft,
+      padding: EdgeInsets.only(bottom: 10, left: 10),
       child: const Text(
-        "Berita",
+        "Berita :",
         style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
       ),
     );
@@ -106,104 +107,6 @@ class _Menu_UtamaPageState extends State<Menu_UtamaPage> {
         "assets/images/logo kelurahan kricak.png",
         height: 180,
         width: 120,
-      ),
-    );
-  }
-
-  Widget daftarmenu() {
-    return Container(
-      child: Column(
-        children: [
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: ((context) => Menu_PengajuanSuratPage())));
-            },
-            child: Container(
-              width: 250,
-              height: 40,
-              child: Center(
-                child: Text(
-                  'Pengajuan Surat',
-                  style: TextStyle(color: Colors.black),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-            style: ButtonStyle(
-              backgroundColor:
-                  MaterialStateProperty.all(Color.fromARGB(255, 146, 240, 148)),
-            ),
-          ),
-          SizedBox(height: 7),
-          ElevatedButton(
-            onPressed: ((() {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: ((context) => AjuanSuratKTP())));
-            })),
-            child: Container(
-              width: 250,
-              height: 40,
-              child: Center(
-                child: Text(
-                  'Surat Yang Anda Ajukan',
-                  style: TextStyle(color: Colors.black),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-            style: ButtonStyle(
-              backgroundColor:
-                  MaterialStateProperty.all(Color.fromARGB(255, 146, 240, 148)),
-            ),
-          ),
-          SizedBox(height: 7),
-          ElevatedButton(
-            onPressed: ((() {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: ((context) => InformasiDesa())));
-            })),
-            child: Container(
-              width: 250,
-              height: 40,
-              child: Center(
-                child: Text(
-                  'Informasi Desa',
-                  style: TextStyle(color: Colors.black),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-            style: ButtonStyle(
-              backgroundColor:
-                  MaterialStateProperty.all(Color.fromARGB(255, 146, 240, 148)),
-            ),
-          ),
-          SizedBox(height: 7),
-          ElevatedButton(
-            onPressed: ((() {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: ((context) => ProfilPage())));
-            })),
-            child: Container(
-              width: 250,
-              height: 40,
-              child: Center(
-                child: Text(
-                  'Akun',
-                  style: TextStyle(color: Colors.black),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-            style: ButtonStyle(
-              backgroundColor:
-                  MaterialStateProperty.all(Color.fromARGB(255, 146, 240, 148)),
-            ),
-          )
-        ],
       ),
     );
   }

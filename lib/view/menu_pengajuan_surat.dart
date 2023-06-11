@@ -1,14 +1,15 @@
 // ignore_for_file: camel_case_types, prefer_const_constructors, sized_box_for_whitespace, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:sikades_pi/view/form_ajuan.dart';
-import 'package:sikades_pi/view/form_ajuan_kk.dart';
+import 'package:sikades_pi/view/form_ajuan_ktp.dart';
+import 'package:sikades_pi/view/alasan1_pembuatankk.dart';
 import 'package:sikades_pi/view/form_ajuan_skck.dart';
 import 'package:sikades_pi/view/form_ajuan_skelahiran.dart';
 import 'package:sikades_pi/view/form_ajuan_skematian.dart';
 import 'package:sikades_pi/view/form_ajuan_snikah.dart';
 import 'package:sikades_pi/view/form_ajuan_spindah.dart';
 import 'package:sikades_pi/view/form_ajuan_stinggal.dart';
+import 'package:sikades_pi/view/menu_pembuatan_kk.dart';
 
 class Menu_PengajuanSuratPage extends StatefulWidget {
   const Menu_PengajuanSuratPage({super.key});
@@ -93,7 +94,7 @@ class _Menu_PengajuanSuratPageState extends State<Menu_PengajuanSuratPage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: ((context) => FormAjuanKKPage())));
+                        builder: ((context) => Menu_Pembuatan_KK())));
               },
               child: Column(children: <Widget>[
                 Image(

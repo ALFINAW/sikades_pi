@@ -14,8 +14,6 @@ class _BeritaDetailState extends State<BeritaDetail> {
     return Scaffold(
         appBar: AppBar(
           elevation: 1,
-          // backgroundColor: "#2E4053".toColor(),
-
           title: const Text(
             'Berita',
             style: TextStyle(
